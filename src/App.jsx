@@ -7,15 +7,24 @@ function App() {
 
   const [tareas, setTareas] = useState([])
 
-  const handleSumbit = (titulo, descripcion, isDone = false) =>{
+  const handleSumbit = (titulo, descripcion) =>{
     const nuevaTarea = {
-      id: crypto.randomUUID(),  // o usar crypto.randomUUID(), o un contador
+      id: crypto.randomUUID(),
       titulo: titulo,
       descripcion: descripcion,
       isDone: false
     }
 
     setTareas([...tareas, nuevaTarea])
+
+  }
+
+
+  const eliminarTarea = (id) =>{
+
+    const nuevoArray = tareas.filter(n => n.id !== id)
+
+    setTareas(nuevoArray)
 
   }
 
@@ -28,7 +37,7 @@ function App() {
 
       <hr />
 
-      <ListaDeTareas tareas={tareas} />
+      <ListaDeTareas tareas={tareas} eliminarTarea={eliminarTarea}/>
       
       
 

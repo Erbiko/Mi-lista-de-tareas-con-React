@@ -8,7 +8,7 @@
 
 import React from 'react'
 
-export function Tarea({id, titulo, descripcion, isDone = false}) {
+export function Tarea({id, titulo, descripcion, eliminarTarea}) {
   return (
     <div key={id}>
         <header>
@@ -16,10 +16,16 @@ export function Tarea({id, titulo, descripcion, isDone = false}) {
         </header>
         <div>
             <p>{descripcion}</p>
+            <aside>
+                <input type="checkbox" defaultValue={false}/>
+            </aside>            
         </div>
-        <aside>
-            <input type="checkbox" defaultValue={isDone}/>
-        </aside>
+
+        <div>
+            <button onClick={() => eliminarTarea(id)}>Eliminar</button>
+            <button>Editar</button>
+        </div>
+
     </div>
   )
 }

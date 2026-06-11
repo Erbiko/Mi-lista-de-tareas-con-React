@@ -9,7 +9,7 @@ por ahora se mostraran todas, mas adelante las filtraremos por completadas y pen
 
 import { Tarea } from "./Tarea";
 
-export function ListaDeTareas({tareas}) {
+export function ListaDeTareas({tareas, eliminarTarea}) {
 
     
 
@@ -23,7 +23,7 @@ export function ListaDeTareas({tareas}) {
             {
                 tareas.map((tareas) => {
                     return(
-                        <Tarea key={tareas.id} titulo={tareas.titulo} descripcion={tareas.descripcion} isDone={tareas.isDone} />
+                        <Tarea key={tareas.id} id={tareas.id} titulo={tareas.titulo} descripcion={tareas.descripcion} isDone={tareas.isDone} eliminarTarea={eliminarTarea}/>
                     )
                 })
 
