@@ -8,7 +8,7 @@
 
 import React from 'react'
 
-export function Tarea({id, titulo, descripcion, eliminarTarea}) {
+export function Tarea({id, titulo, descripcion, eliminarTarea, editarTarea}) {
   return (
     <div key={id}>
         <header>
@@ -23,7 +23,7 @@ export function Tarea({id, titulo, descripcion, eliminarTarea}) {
 
         <div>
             <button onClick={() => eliminarTarea(id)}>Eliminar</button>
-            <button>Editar</button>
+            <button onClick={() => editarTarea(id)}>Editar</button>
         </div>
 
     </div>
